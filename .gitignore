@@ -1,0 +1,5 @@
+*.exe
+*.dll
+SDL_PROJECT/lib/
+SDL_PROJECT/include/sdl2/
+.vscode/
