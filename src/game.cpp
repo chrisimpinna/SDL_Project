@@ -3,6 +3,7 @@
 #include <crafting.h>
 #include <primitiveDrawing.h>
 #include <crafting.h>
+#include <inventory.h>
 
 //-------------------------------------------------------------------------------------
 //------------------Header Initiltializations--------------------------------------------
@@ -11,7 +12,7 @@
 Game::Game() {
     _window = nullptr;
     renderer = nullptr;
-    _screenWidth = 1024;
+    _screenWidth = 1000;
     _screenHeight = 600;
     _gameState = GameState::PLAY;
     _currentScreen = CurrentScreen::CRAFTING;
@@ -24,12 +25,11 @@ Mouse::Mouse() {
     SDL_ShowCursor(SDL_DISABLE); 
 };
 
-Crafting::Crafting() {
-    _frameHeight = 300;
-    _frameWidth = 900;
-    _frameX = 0;
-    _frameY = 0;
-};
+Crafting::Crafting() {};
+
+Inventory::Inventory() {};
+
+
 
 //-------------------------------------------------------------------------------------
 //------------------Game Function Definitions------------------------------------------
@@ -53,7 +53,9 @@ void Game::_gameLoop() {
         SDL_RenderClear(renderer);
 
         Crafting _craft;
-        _craft.DrawCraftingFrame(renderer);
+        _craft.DrawCraftingMenu(renderer);
+        Inventory _inventory;
+        _inventory.DrawInventory(renderer);
 
         Mouse _mouse;
         _mouse.CheckMouse(renderer, evnt);

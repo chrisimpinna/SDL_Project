@@ -3,6 +3,9 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
+#include <inventory.h>
+
+enum class MouseState {NONE, HOLDINGITEM};
 
 class Mouse {
     public:
@@ -12,6 +15,8 @@ class Mouse {
         int MouseX;
         int MouseY;
     private:
-        int _MouseWidth;
-        int _MouseHeight;
+        int _MouseWidth = 10;
+        int _MouseHeight = 10;
+
+        MouseState _mouseState;
 };
